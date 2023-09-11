@@ -4,6 +4,10 @@
  */
 package agenda;
 
+import javax.swing.SwingUtilities;
+import view.PainelGeral;
+
+
 /**
  *
  * @author Alexandre Gonçalves
@@ -14,7 +18,15 @@ public class Agenda {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                
+                new PainelGeral().setVisible(true);
+            }
+        });
     }
     
 }
