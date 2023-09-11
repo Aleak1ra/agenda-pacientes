@@ -2,6 +2,7 @@
 package view;
 
 import controller.database.ConnectionDb;
+import java.util.Map;
 import model.Paciente;
 import org.bson.Document;
 
@@ -34,6 +35,9 @@ public class PainelGeral extends javax.swing.JFrame {
         jTextAreaMostrar = new javax.swing.JTextArea();
         jButtonAtualizar = new javax.swing.JButton();
         jButtonDeletar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,21 +47,18 @@ public class PainelGeral extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Cadastrar paciente/consulta");
 
-        jTextFieldNome.setText("Digite o nome");
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
             }
         });
 
-        jTextFieldIdade.setText("Idade");
         jTextFieldIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIdadeActionPerformed(evt);
             }
         });
 
-        jTextFieldPrioridade.setText("Prioridade");
         jTextFieldPrioridade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrioridadeActionPerformed(evt);
@@ -105,41 +106,64 @@ public class PainelGeral extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("nome:");
+
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Idade");
+
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Nível prioridade");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)
+                        .addGap(2, 2, 2)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldNome))
+                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(96, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
+                                .addGap(30, 30, 30)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
+                                        .addComponent(jButtonAgendar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel3)
+                                        .addComponent(jButtonBuscar))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jButtonAtualizar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel4))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldNome)
-                                        .addComponent(jTextFieldIdade)
-                                        .addComponent(jTextFieldPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jButtonDeletar))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButtonAgendar)
+                                .addGap(48, 48, 48)
+                                .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonBuscar))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButtonAtualizar)
+                                .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonDeletar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+                                .addComponent(jLabel4)))
+                        .addGap(42, 42, 42))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,11 +171,17 @@ public class PainelGeral extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -167,7 +197,7 @@ public class PainelGeral extends javax.swing.JFrame {
                     .addComponent(jButtonDeletar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -198,27 +228,108 @@ public class PainelGeral extends javax.swing.JFrame {
 
     private void jButtonAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendarActionPerformed
        ConnectionDb db = new ConnectionDb();
-                
-        Document user = new Document(paciente.toMap()); 
-        try{
-            db.Conexao("mongodb://localhost:27017", "DesafioProfissional","usuarios");
-            db.Insert(user);
-        }catch(Exception e){
-            System.out.println("Erro ao Conectar ou Inserir no banco: "+ e);
-        }
-        System.out.println("Inserção aconteceu");
+    
+    // Obtenha os valores dos campos de texto
+    String nomePaciente = jTextFieldNome.getText();
+    int idadePaciente = Integer.parseInt(jTextFieldIdade.getText());
+    int prioridadePaciente = Integer.parseInt(jTextFieldPrioridade.getText());
+    
+    // Crie um novo objeto de Paciente com os valores obtidos
+    Paciente novoPaciente = new Paciente();
+    novoPaciente.setNome(nomePaciente);
+    novoPaciente.setIdade(idadePaciente);
+    novoPaciente.setPrioridade(prioridadePaciente);
+
+    // Converta o novo paciente em um documento para inserção no banco de dados
+    Document documentoPaciente = new Document(novoPaciente.toMap());
+    
+    try {
+        db.Conexao("mongodb://localhost:27017", "AgendaDeConsultas", "pacientes");
+        db.Insert(documentoPaciente);
+        jTextAreaMostrar.setText("Paciente inserido com sucesso!");
+    } catch (Exception e) {
+        System.out.println("Erro ao Conectar ou Inserir no banco: " + e);
+    } finally {
+        db.Close();
+    }
     }//GEN-LAST:event_jButtonAgendarActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
+       ConnectionDb db = new ConnectionDb();
+    try {
+        db.Conexao("mongodb://localhost:27017", "AgendaDeConsultas", "pacientes");
+
+        // Obtenha o nome do paciente a ser buscado a partir do campo de texto
+        String nomePaciente = jTextFieldNome.getText();
+
+        // Crie uma consulta para buscar o paciente pelo nome
+        Document query = new Document("nome", nomePaciente);
+
+        // Execute a consulta no banco de dados
+        Document pacienteEncontrado = db.findCadastro("nome", nomePaciente);
+
+        // Construa uma representação em string dos detalhes do paciente
+        StringBuilder detalhesPaciente = new StringBuilder();
+        detalhesPaciente.append("Paciente Encontrado:\n");
+        for (Map.Entry<String, Object> entry : pacienteEncontrado.entrySet()) {
+            detalhesPaciente.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
+        }
+
+        // Exiba os detalhes do paciente encontrado
+        jTextAreaMostrar.setText(detalhesPaciente.toString());
+    } catch (Exception e) {
+        System.out.println("Erro ao buscar paciente: " + e);
+    } finally {
+        db.Close(); // Certifique-se de fechar a conexão após a operação.
+    }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        // TODO add your handling code here:
+        ConnectionDb db = new ConnectionDb();
+    try {
+        db.Conexao("mongodb://localhost:27017", "AgendaDeConsultas", "pacientes");
+
+        // Obtenha o nome do paciente a ser atualizado a partir do campo de texto
+        String nomePaciente = jTextFieldNome.getText();
+
+        // Crie uma consulta para buscar o paciente pelo nome
+        Document query = new Document("nome", nomePaciente);
+
+        // Crie um documento com os novos dados do paciente (você pode adaptar isso para seus campos)
+        Document novoPaciente = new Document();
+        novoPaciente.append("idade", Integer.parseInt(jTextFieldIdade.getText())); // Atualize os campos conforme necessário
+
+        // Execute a operação de atualização no banco de dados
+        db.Update(query, novoPaciente);
+
+        jTextAreaMostrar.setText("Paciente atualizado com sucesso!");
+    } catch (Exception e) {
+        System.out.println("Erro ao atualizar paciente: " + e);
+    } finally {
+        db.Close(); // Certifique-se de fechar a conexão após a operação.
+    }
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
     private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
-        // TODO add your handling code here:
+         ConnectionDb db = new ConnectionDb();
+    try {
+        db.Conexao("mongodb://localhost:27017", "AgendaDeConsultas", "pacientes");
+
+        // Obtenha o nome do paciente a ser excluído a partir do campo de texto
+        String nomePaciente = jTextFieldNome.getText();
+
+        // Crie uma consulta para buscar o paciente pelo nome
+        Document query = new Document("nome", nomePaciente);
+
+        // Execute a operação de exclusão no banco de dados
+        db.Delete(query);
+
+        jTextAreaMostrar.setText("Paciente excluído com sucesso!");
+    } catch (Exception e) {
+        System.out.println("Erro ao excluir paciente: " + e);
+    } finally {
+        db.Close(); // Certifique-se de fechar a conexão após a operação.
+    }
     }//GEN-LAST:event_jButtonDeletarActionPerformed
 
   
@@ -263,6 +374,9 @@ public class PainelGeral extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaMostrar;
