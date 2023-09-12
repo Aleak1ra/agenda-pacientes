@@ -15,11 +15,11 @@ Este é um programa simples de agenda de consultas médicas que permite ao usuá
 O programa é implementado em Java e usa uma fila prioritária para gerenciar os pacientes. A fila prioritária garante que os pacientes sejam atendidos com base em sua prioridade, onde uma prioridade menor significa uma prioridade mais alta.
 
 # Requisitos #
-Java Development Kit (JDK) instalado.
-MongoDB instalado e em execução localmente.
-Uma IDE Java (por exemplo, Eclipse, IntelliJ IDEA) para executar o programa.
+- Java Development Kit (JDK) instalado.
+- MongoDB instalado e em execução localmente.
+- Uma IDE Java (por exemplo, Eclipse, IntelliJ IDEA) para executar o programa.
 
-# Como Executar#
+# Como Executar #
 Clone ou baixe este repositório.
 Importe o projeto em sua IDE Java.
 Certifique-se de que o MongoDB esteja em execução localmente.
