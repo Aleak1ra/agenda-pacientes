@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Paciente {
-    private int id;
+    private String id;
     private String nome;
     private int idade;
     private String diagnostico;
@@ -23,7 +23,7 @@ public class Paciente {
     }
 
     // Construtor com parâmetros
-    public Paciente(int id, String nome, int idade, String diagnostico, int prioridade) {
+    public Paciente(String id, String nome, int idade, String diagnostico, int prioridade) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
@@ -32,11 +32,11 @@ public class Paciente {
     }
 
     // Métodos getters e setters para as propriedades
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -86,7 +86,7 @@ public class Paciente {
     // Método para criar um objeto Paciente a partir de um mapa
     public static Paciente fromMap(Map<String, Object> map) {
         Paciente paciente = new Paciente();
-        paciente.setId((int) map.get("id"));
+        paciente.setId((String) map.get("id"));
         paciente.setNome((String) map.get("nome"));
         paciente.setIdade((int) map.get("idade"));
         paciente.setDiagnostico((String) map.get("diagnostico"));

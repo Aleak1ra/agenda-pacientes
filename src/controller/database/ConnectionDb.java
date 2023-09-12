@@ -12,7 +12,10 @@ import org.bson.Document;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ConnectionDb {
@@ -49,12 +52,25 @@ public class ConnectionDb {
         }
         return user;
  }
- public Document findCadastro(String campo, String valor) throws Exception{
-     Document query = new Document(campo,valor);
-     Document cadastro= collection.find(query).first();
-     if(cadastro == null){
-         throw new Exception("Cadastro Não encontrado");
-     }
-     return cadastro;
- }
+ public Document findCadastro(Document campo) throws Exception{
+    Document cadastro = collection.find(campo).first();
+    if (cadastro == null) {
+        throw new Exception("Cadastro Não encontrado");
+    }
+    return cadastro;
+    }
+ 
+ public List<Document> findCadastros(Document query) {
+        List<Document> cadastrosEncontrados = new ArrayList<>();
+
+        // Executar a consulta na coleção
+        try (MongoCursor<Document> cursor = collection.find(query).iterator()) {
+            while (cursor.hasNext()) {
+                Document cadastro = cursor.next();
+                cadastrosEncontrados.add(cadastro);
+            }
+        }
+
+        return cadastrosEncontrados;
+    }
 }
